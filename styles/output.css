@@ -46,7 +46,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Roboto, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -1957,6 +1957,10 @@ video {
 .bg-zinc-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+
+.bg-home {
+  background-image: url('/assets/bg.png');
 }
 
 .decoration-slice {
