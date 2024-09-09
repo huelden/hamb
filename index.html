@@ -271,32 +271,30 @@
     </div>
 
     <!--modal-->
-    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden " id="cart-modal">
-
+    <div class="bg-black/60 w-full h-full fixed top-0 left-0 z-[99] items-center justify-center hidden" id="cart-modal">
       <div class="bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px]">
-        <h2 class="text-center font-bold text-2xl mb-2">Meu carinho</h2>
-
+        <h2 class="text-center font-bold text-2xl mb-2">Meu carrinho</h2>
+    
         <div id="cart-items" class="flex justify-between mb-2 flex-col"></div>
-
+    
         <p class="font-bold">Total: <samp id="cart-total">0.00</samp></p>
-
+    
         <p class="font-bold mt-4">Endereço de entrega:</p>
         <input 
-        type="text"
-        placeholder="Digite seu endereço completo..."
-        id="address"
-        class="w-full border-2 p-1 rounded my-1"
+          type="text"
+          placeholder="Digite seu endereço completo..."
+          id="address"
+          class="w-full border-2 p-1 rounded my-1"
         />
         <p class="text-red-500" hidden id="address-warn">Digite seu endereço completo!</p>
-
+    
         <div class="flex items-center justify-between mt-5 w-full">
-          <button id="close-modal-btn" class="bg-yellow-50">Fechar</button>
-          <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded">Finalizar pedido</button>
+          <button id="close-modal-btn" class="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 transition duration-300">Fechar</button>
+          <button id="checkout-btn" class="bg-green-500 text-white px-4 py-1 rounded hover:bg-green-600 transition duration-300">Finalizar pedido</button>
         </div>
-
       </div>
-
     </div>
+    
 
 
     <!--fim-->
@@ -308,25 +306,14 @@
    
    <footer class="w-full bg-red-500 py-2 flex justify-center items-center fixed bottom-0 z-40">
       <button class="flex items-center gap-2 bg-white text-red-500 px-4 py-2 rounded-md hover:bg-red-600 hover:text-white transition duration-300" aria-label="Veja meu carrinho">
-        <span id="cart-count" class="font-bold">(0)</span>
+        <span id="cart-count"  >(0)</span>
         Veja meu carrinho
         <i class="fa fa-cart-plus text-lg"></i>
       </button>
     </footer>
 
     
-
-     <!--<footer class="w-full gb-red-500 py-2 fixed bottom-0 z-40 flex items-center justify-center ">
-      <button class="felx items-center gap-2 bg-white font-bold" id="cart-btn">
-        
-          (<span id="cart-count">2</span>)
-          Veja meu carrinho
-       
-        <i class="fa fa-cart-plus text-lg text-white"></i>
-      </button>
-
-    </footer>  <!-->
-    
-    <script src="script-js"></script>
+   <script src="script.js" defer></script> 
   </body>
+  
 </html>
