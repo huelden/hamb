@@ -11,12 +11,19 @@ const cartCounter = document.getElementById("cart-count");
 const addressInput = document.getElementById("address");
 const addressWarn = document.getElementById("address-warn");
 
-cartBtn.addEventListener("click", Function() {
-    cartModal.style.display = "flex"
-})
+// Correção
+cartBtn.addEventListener("click", function() {  // <- Corrigido com parêntese correto
+  cartModal.style.display = "flex";
+});
+
 
 
 /*
+
+cartBtn.addEventListener("click", Function() {
+    cartModal.style.display = "flex";
+});
+
 // Abrir o modal do carrinho
 cartBtn.addEventListener("click", function () {
   cartModal.style.display = "flex";
