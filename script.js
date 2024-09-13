@@ -97,11 +97,47 @@ function addToCart(name, price){
   existingItem.quantity += 1;
   return;
 
- }
+ }else{
 
   cart.push({
     name,
     price,
     quantity: 1,
   })
+ }
+
+ updateCartModal()
+
 }
+
+
+//Atualiza o carrinho
+
+function updateCartModal(){
+  cartItemsContainer.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    const cartItemElement = document.createElement("div");
+
+    cartItemElement.innerHTML = `
+    <div>
+     <div>
+     <p>${item.name}</p>
+     <p>${item.quantity}</p>
+     <p>R$ ${item.price} </p>
+     </div>
+
+    </div>
+
+    <div>
+    <button>
+    Remover
+    </button>
+    </div>
+    `
+    cartItemsContainer.appendChild(cartItemElement)
+  })
+}
+
+
