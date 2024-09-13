@@ -94,7 +94,7 @@ function addToCart(name, price){
  if(existingItem){
   //Se o item ja existe, aumenta apenas a quatidade + 1
 
-  console.log(existingItem);
+  existingItem.quantity += 1;
   return;
 
  }
