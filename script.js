@@ -125,26 +125,38 @@ function updateCartModal(){
 
     cartItemElement.innerHTML = `
 
-    <div class="flex>
+    <div class="flex items-center justify-between">
       <div>
-        <p>${item.name}</p>
-        <p>${item.quantity}</p>
-        <p>R$ ${item.price}</p>
+        <p class="font-medium">${item.name}</p>
+        <p>Qtd: ${item.quantity}</p>
+        <p class="font-medium mt-2">R$ ${item.price.toFixed(2)}</p>
       </div>
 
     
 
-      <div>
-        <button>
+      
+        <button class="remove-f>
           Remover
         </button>
-      </div>
+     
 
     </div>
     `
+
+    total += item.price * item.quantity;
+
     cartItemsContainer.appendChild(cartItemElement)
+    
   })
+
+  cartTotal.textContent = total.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+  cartCounter.innerHTML = cart.length;
 }
+
 
 
 
