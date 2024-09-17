@@ -56,7 +56,9 @@ const addressWarn = document.getElementById("address-warn")
 let cart = [];
 
 cartBtn.addEventListener("click", function(){
+  updateCartModal();
   cartModal.style.display = "flex"
+  
 })
 
 cartModal.addEventListener("click", function(event){
@@ -95,7 +97,7 @@ function addToCart(name, price){
   //Se o item ja existe, aumenta apenas a quatidade + 1
 
   existingItem.quantity += 1;
-  return;
+  
 
  }else{
 
@@ -119,25 +121,31 @@ function updateCartModal(){
 
   cart.forEach(item => {
     const cartItemElement = document.createElement("div");
+    cartItemElement.classList.add("flex", "justify-between", "mb-4","flex-col" )
 
     cartItemElement.innerHTML = `
-    <div>
-     <div>
-     <p>${item.name}</p>
-     <p>${item.quantity}</p>
-     <p>R$ ${item.price} </p>
-     </div>
 
-    </div>
+    <div class="flex>
+      <div>
+        <p>${item.name}</p>
+        <p>${item.quantity}</p>
+        <p>R$ ${item.price}</p>
+      </div>
 
-    <div>
-    <button>
-    Remover
-    </button>
+    
+
+      <div>
+        <button>
+          Remover
+        </button>
+      </div>
+
     </div>
     `
     cartItemsContainer.appendChild(cartItemElement)
   })
 }
+
+
 
 
