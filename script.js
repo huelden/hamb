@@ -239,7 +239,18 @@ checkoutBtn.addEventListener("click", function(){
 
   const isOpen = checkRestaurantOpen();
   if(!isOpen){
-    alert("RESTAURANTE FECHANDO NO MOMENTO!")
+    Toastify({
+      text: "Ops o restaurante está fechado!",
+      duration: 3000,
+      close: true,
+      gravity: "top", // `top` or `bottom`
+      position: "right", // `left`, `center` or `right`
+      stopOnFocus: true, // Prevents dismissing of toast on hover
+      style: {
+        background: "#ef4444",
+      },
+  }).showToast();
+
     return;
   }
 
@@ -250,7 +261,7 @@ checkoutBtn.addEventListener("click", function(){
     return;
   }
 
-  
+
 const cartItems = cart.map((item) => {
   return(
     `${item.name} quantidade: (${item.quantity}) Preço: R$${item.price} |`
@@ -263,6 +274,9 @@ const phone = "351927208014"
 
 window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
 
+cart.length = 0;
+updateCartModal();
+
 })
 
 
@@ -271,7 +285,7 @@ window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.va
 function checkRestaurantOpen(){
   const data = new Date();
   const hora = data.getHours();
-  return hora >= 18 && hora < 23;
+  return hora >= 18 && hora < 22;
 }
 
 const spanItem = document.getElementById("date-span")
