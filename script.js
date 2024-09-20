@@ -172,20 +172,21 @@ function updateCartModal() {
   cart.forEach(item => {
     const cartItemElement = document.createElement("div");
     cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col");
+       // Certifique-se de que `item.price` seja sempre tratado como número com `toFixed(2)` 
+       cartItemElement.innerHTML = `
+       <div class="flex items-center justify-between">
+         <div>
+           <p class="font-medium">${item.name}</p>
+           <p>Qtd: ${item.quantity}</p>
+           <p class="font-medium mt-2">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+         </div>
+         <button class="remove-from-cart-btn" data-name="${item.name}">
+           Remover
+         </button>
+       </div>
+     `; 
 
-    // Certifique-se de que `item.price` seja sempre tratado como número com `toFixed(2)` 
-    cartItemElement.innerHTML = `
-      <div class="flex items-center justify-between">
-        <div>
-          <p class="font-medium">${item.name}</p>
-          <p>Qtd: ${item.quantity}</p>
-          <p class="font-medium mt-2">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
-        </div>
-        <button class="remove-from-cart-btn" data-name="${item.name}">
-          Remover
-        </button>
-      </div>
-    `; 
+
 
     // Multiplica o preço pela quantidade e acumula o total
     total += item.price * item.quantity;
