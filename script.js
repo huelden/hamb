@@ -236,13 +236,54 @@ addressInput.addEventListener("input", function(event){
 })
 
 checkoutBtn.addEventListener("click", function(){
+
+  const isOpen = checkRestaurantOpen();
+  if(!isOpen){
+    alert("RESTAURANTE FECHANDO NO MOMENTO!")
+    return;
+  }
+
   if(cart.length === 0) return;
   if(addressInput.value === ""){
     addressWarn.classList.remove("hidden")
     addressInput.classList.add("borde-red-500")
     return;
   }
+
+  
+const cartItems = cart.map((item) => {
+  return(
+    `${item.name} quantidade: (${item.quantity}) Preço: R$${item.price} |`
+  )
+}).join("")
+
+const message = encodeURIComponent(cartItems)
+const phone = "351927208014"
+
+
+window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+
 })
+
+
+
+
+function checkRestaurantOpen(){
+  const data = new Date();
+  const hora = data.getHours();
+  return hora >= 18 && hora < 23;
+}
+
+const spanItem = document.getElementById("date-span")
+const isOpen = checkRestaurantOpen();
+
+if(isOpen){
+  spanItem.classList.remove("bg-red-500");
+  spanItem.classList.add("bg-green-600")
+}else{
+  spanItem.classList.remove("bg-green-600")
+  spanItem.classList.add("bg-red-500")
+}
 
 
 
